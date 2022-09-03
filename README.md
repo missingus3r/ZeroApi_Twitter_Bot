@@ -1,6 +1,10 @@
 # ZeroApi_Twitter_Bot
 This is a bot for tweeting, made entirely in Python & without APIs!
 
+Pueden ver el bot live en: 
+
+	https://twitter.com/dolar_uruguay
+
 Prerequisitos:
 
 	Python 3.10

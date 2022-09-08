@@ -36,7 +36,8 @@ Tambien pueden tomarlo como base para hacer su propio bot sin usar APIs!
 Update 08/09/2022
 
 	Mejoras:
-		Posibilidad de publicar nuevas monedas: Real, Peso Argentino, Euro.
+		Posibilidad de publicar nuevas monedas: Real, Peso Argentino, Euro
+		Funcionamiento en background! El script funciona sin abrir ventanas del Chrome
 		Codigo mas limpio y mas compacto
 		Menos librerias (quitada la librera de BeatifulSoup, ahora el bot usa solo selenium para el scrapping y el posteo en Twitter)
 		Optimizado el tiempo de ejecucion, 40% mas rápido a la misma velocidad de internet

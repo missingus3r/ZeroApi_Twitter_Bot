@@ -32,7 +32,7 @@ driver.get("https://www.ine.gub.uy/cotizacion-de-monedas")
 
 cells = driver.find_elements(By.XPATH,"//td[@role='gridcell']")
 
-dolar_data = []
+currency_data = []
 index = 0
 loop = False
 for data in cells:
@@ -42,9 +42,9 @@ for data in cells:
     if loop and index < 4:
         if index == 1:
             fecha = data.text[0:10]
-            dolar_data.append(fecha)
+            currency_data.append(fecha)
         else:
-            dolar_data.append(data.text)
+            currency_data.append(data.text)
         index=index+1
     else:
         loop = False
@@ -54,17 +54,17 @@ fecha_actual = datetime.today()
 fecha_actual = str(fecha_actual.day).zfill(2)+"/"+str(fecha_actual.month).zfill(2)+"/"+str(fecha_actual.year)
 
 try:
-    dolar_data.index(fecha_actual)
+    currency_data.index(fecha_actual)
 except:
-    print("Cotizacion no disponible. Finalizado.")
+    print("Cotizacion del "+currency+" no disponible. Finalizado.")
     exit()
 
-compra_actual = dolar_data[2]
-compra_anterior = dolar_data[6]
-venta_actual = dolar_data[3] 
-venta_anterior = dolar_data[7]
-print("Valor compra anterior: "+ compra_anterior)
-print("Valor compra actual: "+ compra_actual)
+compra_actual = currency_data[2]
+compra_anterior = currency_data[6]
+venta_actual = currency_data[3] 
+venta_anterior = currency_data[7]
+print("Valor compra anterior del "+currency+": "+ compra_anterior)
+print("Valor compra actual del "+currency+": "+ compra_actual)
 
 # calculamos la diferencia con el ultimo dia habil y vemos si subio o bajo
 diff = float(compra_actual) - float(compra_anterior)
@@ -81,11 +81,11 @@ else:
 compra_actual = str(round(float(compra_actual),2))
 
 #------------------------------- START OF TWEET FORMATTING ------------------------
-tweet = """El valor del dólar a la fecha es de: 
+tweet = """El valor del """+currency+""" a la fecha es de: 
 """+compra_actual+""" pesos uruguayos
 """+direccion+""" """+percentage+"""
 Fuente: https://ine.gub.uy     
-#bot #dolar #pesos #uruguay #cotizacion #BCU #brou""" 
+#bot #"""+currency+""" #pesos #uruguay #cotizacion #BCU #brou""" 
 #------------------------------- END OF TWEET FORMATTING --------------------------
 
 # TWITTER

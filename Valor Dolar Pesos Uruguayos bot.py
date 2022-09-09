@@ -13,15 +13,15 @@ from datetime import datetime, timedelta
 
 # Init
 currency = "Dolar USA" # Opciones: Real, Euro, Peso Argentino
-email = "mail@gmail.com"
+mail = "mail@gmail.com"
 contrasenia = "contraseña"
 telefono = "091111111"
 
 # Configuracion Selenium
 options = Options()
-options.add_argument("--headless")
-options.add_argument("--no-sandbox")
-options.add_argument("--disable-dev-shm-usage")
+# options.add_argument("--headless")
+# options.add_argument("--no-sandbox")
+# options.add_argument("--disable-dev-shm-usage")
 
 #driver
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=options)
@@ -94,29 +94,25 @@ print("Entrando a Twitter...")
 sleep(10)
 
 email = driver.find_element(By.XPATH,"//input[@name='text']")
-email.send_keys(email)
-email.send_keys(Keys.TAB+Keys.ENTER)
+email.send_keys(mail+Keys.TAB+Keys.ENTER)
 print("Email ingresado")
 sleep(10)
 
 try:
     email = driver.find_element(By.XPATH,"//input[@name='text']")
-    email.send_keys(telefono)
-    email.send_keys(Keys.TAB+Keys.ENTER)
+    email.send_keys(telefono+Keys.TAB+Keys.ENTER)
     print("Telefono ingresado")
 except:
     print("Ingreso de telefono no necesario")
 finally:
     sleep(10)
     password = driver.find_element(By.XPATH,"//input[@name='password']")
-    password.send_keys(contrasenia)
-    password.send_keys(Keys.TAB+Keys.TAB+Keys.TAB+Keys.ENTER)
+    password.send_keys(contrasenia+Keys.TAB+Keys.TAB+Keys.TAB+Keys.ENTER)
     print("Password ingresada")
     
 sleep(10)
 tweet_box = driver.find_element(By.XPATH,"//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr']")
-tweet_box.send_keys(tweet)
-tweet_box.send_keys(Keys.TAB+Keys.TAB+Keys.TAB+Keys.TAB+Keys.TAB+Keys.TAB+Keys.TAB+Keys.TAB+Keys.ENTER)
+tweet_box.send_keys(tweet+Keys.TAB+Keys.TAB+Keys.TAB+Keys.TAB+Keys.TAB+Keys.TAB+Keys.TAB+Keys.TAB+Keys.ENTER)
 print("Tweet publicado")
 sleep(5)
 

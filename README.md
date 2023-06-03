@@ -1,48 +1,63 @@
-# ZeroApi_Twitter_Bot_V1.5
-This is a bot for tweeting, made entirely in Python & without APIs!
+# ValorDolarBot v2.0
 
-Pueden ver el bot live en: 
+This is the second version of a Python script that utilizes Selenium and BeautifulSoup to scrape the latest exchange rates of Dollar (USD) to Uruguayan Pesos (UYU) from the website https://www.brou.com.uy/cotizaciones. It calculates the percentage change from the previous value and then posts the information on Twitter.
 
-	Dolar en Uruguay - Twitter : https://twitter.com/dolar_uruguay
+## Features
 
-Prerequisitos:
+- Scrape latest exchange rates of Dollar (USD) to Uruguayan Pesos (UYU) from the Banco Republica Oriental del Uruguay (BROU) website.
+- Calculate percentage change from previous rates.
+- Post the formatted information on Twitter.
 
-	Python 3.10
-	
-	Chrome
-  
-Librerias en python de:
+## Prerequisites
 
-	Selenium
-	
-	Webdriver-manager
-   
-Configuracion:
+- Python 3.x
+- Selenium
+- BeautifulSoup
+- Google Chrome WebDriver
 
-	Linea 15: currency = "Dolar USA"     -> Moenda, Opciones: Real, Euro, Peso Argentino
-  
-	Linea 16: email = "mail@gmail.com"   -> Email asociado a la cuenta de Twitter
-  
-	Linea 17: contrasenia = "contraseña" -> Contraseña de la cuenta de Twitter
-	
-	Línea 18: telefono = "091111111"     -> Número de movil asociado a la cuenta de Twitter
-  
-Para automatizar este bot, es necesario descargar el script y correrlo de forma automatica todos los dias despues de las 9, 
-hora en la cual el INE publica las cotizaciones. Pueden correrlo en su propia PC (Linux, Windows o Mac) o en un server privado o remoto 24/7.
+## Installation
 
-Pueden modificarlo a gusto para que el bot tome los datos de otra pagina, otras monedas, o los publique en otra red social.
-Tambien pueden tomarlo como base para hacer su propio bot sin usar APIs!
+1. Install Python 3.x from the official website: https://www.python.org/downloads/
+2. Open a terminal or command prompt and install Selenium and BeautifulSoup using pip:
 
-Update 08/09/2022
+```
+pip install selenium
+pip install beautifulsoup4
+```
 
-	Mejoras:
-		Posibilidad de publicar nuevas monedas: Real, Peso Argentino, Euro
-		Funcionamiento en background! El script funciona sin abrir ventanas del Chrome
-		Codigo mas limpio y mas compacto
-		Menos librerias (quitada la librera de BeatifulSoup, ahora el bot usa solo selenium para el scrapping y el posteo en Twitter)
-		Optimizado el tiempo de ejecucion, 40% mas rápido a la misma velocidad de internet
+3. Download the Google Chrome WebDriver from https://sites.google.com/a/chromium.org/chromedriver/downloads. Extract the file and place it in the same directory as the script.
 
-Mencionen si copian o modifican mi codigo!
+## Usage
+
+1. Update the Twitter credentials (email, password and phone number) in the script:
+
+```python
+mail = "user@gmail.com"
+contraseña = "password"
+telefono = "111111111"
+```
+
+2. Run the script in the terminal or command prompt:
+
+```
+python ValorDolarBot_v2.0.py
+```
+
+The script will scrape the latest exchange rates, calculate the percentage change, and post the information on Twitter.
+
+## Notes
+
+- The script is designed to run in headless mode, meaning it does not display a browser window. However, if you prefer to see the browser window while the script is running, simply comment out or remove the following line:
+
+```python
+options.add_argument("--headless")
+```
+
+- The script currently deals only with the Dollar (USD) to Uruguayan Pesos (UYU) rates, but it can be easily adapted for other currencies as well.
+
+## Contributions
+
+Feel free to report bugs, contribute new features or improvements to the code. Contributions are more than welcome!
 
 Salu2!
 
